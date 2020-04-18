@@ -1,3 +1,4 @@
+import img404 from '../../img/404.png'
 import { elements } from './base'
 export const getInput = () => elements.searchField.value
 export const clearInput = () => (elements.searchField.value = '')
@@ -88,7 +89,7 @@ export const renderError = () => {
 <div class="error">
   <img
     class="error__img"
-    src="404.34db2e07.png"
+    src=${img404}
     alt="#"
   />
   <small>illustration by Ouch.pics<b> https://icons8.com</b></small>
