@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap')
+@import './assets/placeholders'
+@import './screens'
+@import './mixins'
+@import './vars'
+html,body
+    margin: 0
+    padding: 0
+    height: 100vh
+.container
+    grid-area: "container"
+    padding-left: 10%
+    padding-right: 10%
+
+body
+    background-color: $dark
+    color: $grey
+    font-family: 'Roboto', sans-serif
+    display: grid
+    grid-template-areas: "header" "container" "footer"
+    grid-auto-rows: 1fr 8fr 0.5fr
+.header
+    grid-area: "header"
+    background: $darker
+    padding: $p
+    @include innerShadow()
+    @include center-sb()
+.logo
+    opacity: 80%
+    &__img
+        height: 70px
+.menubar
+    @include center-sb()
+.genre
+    display: flex
+    padding: 0
+    margin: 0
+    list-style: none
+    &__item
+        padding: $p
+        cursor: pointer
+        border: 1px solid transparent
+        transition: background-color 0.2s, border 0.5s
+        color: $grey
+        &:hover
+            border: solid 1px white
+        &:active
+            background-color: white
+            color: $dark
+.search
+    margin-top: $m
+    width: 100%
+    &__field
+        text-align: center
+        font-family: inherit
+        font-weight: 300
+        font-size: 1.7rem
+        color: $grey
+        border: none
+        width: 100%
+        background: transparent
+        outline: none
+.movies
+    display: grid
+    grid-column-gap: auto
+    grid-row-gap: auto
+    justify-content: center
+    @include for-phone-only
+        grid-template-columns: repeat(1,auto)
+    @include for-tablet-landscape-up
+        grid-template-columns: repeat(3,auto)
+    @include for-desktop-up
+        grid-template-columns: repeat(4,auto)
+    @include for-big-desktop-up
+        grid-template-columns: repeat(6,auto)
+.movie
+    cursor: pointer
+    margin: $gap
+    padding: $p*0.8
+    border-radius: 3%
+    width: 175px
+    transition: filter 0.5s
+    text-align: center
+    @include innerShadow()
+    &-body
+        font-weight: 300
+    &__title,&__year,&__genre,&__rating
+        font-size: 0.8rem
+        margin-top: $m/2
+    &__year
+        font-size: 1rem
+    &__genre
+        margin-top: $m
+        opacity: 30%
+        font-size: 1.2rem
+        display: grid
+        grid-auto-flow: column
+        justify-content: center
+        grid-column-gap: 10px
+    &__img
+        border-radius: 3%
+        max-width: 175px
+        @include shadow()
+    &__title
+        margin-bottom: 0
+        font-size: 1.1rem
+        white-space: nowrap
+        overflow: hidden
+        text-overflow: ellipsis
+    &:hover
+        filter: brightness(70%)
+    &:active
+        filter: brightness(30%)
+.pagination
+    display: flex
+    justify-content: space-between
+    margin-bottom: $m
+    display: none
+    &__button
+        cursor: pointer
+        background: none
+        color: $grey
+        border: none
+        padding: 10px 20px 10px 20px
+        font-size: 1rem
+        border-radius: 5px
+        outline: none
+        transition: filter 0.5s
+        @include innerShadow()
+        &:active
+            filter: brightness(30%)
+.footer
+    grid-area: "footer"
+    background: $darker
+    padding: $p
+
+    @include center()
+    @include innerShadow()
+
+.creator
+    margin-right: $m/2
+.accounts-links
+    &__item
+        text-decoration: none
+        color: inherit
+.error
+    margin-top: $m*2
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    text-align: center
+    // height: 120%
+    &__img
+        height: 15rem
+        opacity: 35%
+        filter: grayscale(100%)
+    &__title
+        margin-bottom: 0
+
+    &__subtitle
+        margin-top: $m/3
+        width: 400px
+        opacity: 70%
+.spinner
+    width: 100px
+    height: 100px
+    margin: 100px auto
+    background-color: #5c5c5c
+
+    border-radius: 100%
+    -webkit-animation: sk-scaleout 1.0s infinite ease-in-out
+    animation: sk-scaleout 1.0s infinite ease-in-out
+
+@-webkit-keyframes sk-scaleout
+  0% 
+    -webkit-transform: scale(0)
+  100%
+    -webkit-transform: scale(1.0)
+    opacity: 0
+
+@keyframes sk-scaleout
+    0%
+        -webkit-transform: scale(0)
+        transform: scale(0)
+    100%
+        -webkit-transform: scale(1.0)
+        transform: scale(1.0)
+        opacity: 0
