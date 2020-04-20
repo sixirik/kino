@@ -1,13 +1,13 @@
 {
   "name": "kino",
   "version": "0.1.0",
-  "description": "Movie player",
+  "description": "Torrent lib",
   "main": "index.js",
   "scripts": {
-    "dev": "parcel ./src/index.html --open firefox-developer-edition",
+    "dev": "parcel ./src/index.html --open",
     "build": "parcel build ./src/index.html"
   },
-  "author": "",
+  "author": "Viktor Tshorka",
   "license": "MIT",
   "devDependencies": {
     "parcel-bundler": "^1.12.4",

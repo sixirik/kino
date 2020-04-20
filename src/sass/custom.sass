@@ -26,7 +26,9 @@ body
     @include innerShadow()
     @include center-sb()
 .logo
-
+    zoom: 1
+    filter: alpha(opacity=50)
+    opacity: 0.6
     &__img
         height: 70px
 .menubar
@@ -90,13 +92,15 @@ body
     &__year
         font-size: 1rem
     &__genre
-
         margin-top: $m
         font-size: 1.2rem
         display: grid
         grid-auto-flow: column
         justify-content: center
         grid-column-gap: 10px
+        zoom: 1
+        filter: alpha(opacity=30)
+        opacity: 0.3
     &__img
         border-radius: 3%
         max-width: 175px
@@ -150,10 +154,11 @@ body
     justify-content: center
     align-items: center
     text-align: center
-    // height: 120%
     &__img
         height: 15rem
-
+        zoom: 1
+        filter: alpha(opacity=30)
+        opacity: 0.3
         filter: grayscale(100%)
     &__title
         margin-bottom: 0
